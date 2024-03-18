@@ -6,5 +6,8 @@ export const weatherConditions = {
     Mist: "./assets/weather-icons/mist 2.svg",
     Snow: "./assets/weather-icons/snow.png",
     Thunderstorm: "./assets/weather-icons/thunderstorm.png",
-    Haze: "./assets/weather-icons/haze.png"
+    Haze: "./assets/weather-icons/haze.png",
+    Smoke: "./assets/weather-icons/haze.png",
+
   };
+  

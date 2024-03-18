@@ -38,6 +38,7 @@ export const weatherData = ()=>{
                 document.querySelector('.humidity').innerHTML = data.main.humidity
                 document.querySelector('.windSpeed').innerHTML = `${Math.floor(data.wind.speed)}km/h`
                 document.querySelector('.pressure').innerHTML = `${data.main.pressure}hpa`
+                document.querySelector('.visibility').innerHTML = `${data.visibility/1000} km`
 
 
                 sunrise(data.sys.sunrise)
