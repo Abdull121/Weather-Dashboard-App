@@ -1,5 +1,7 @@
 import * as fetchTime from './fetchTime.js'
+import * as fiveDaysForecast from './5daysForecast.js'
 import {weatherConditions} from './weatherIcon.js'
+
 const defaultSearch =  document.querySelector("#default-search")
 const  cityName = document.querySelector("#cityname")
 const  searchBox =  document.querySelector(".input")
@@ -49,6 +51,10 @@ export const weatherData = ()=>{
                 const weatherMain = data.weather[0].main;
                 weatherImg.src = weatherConditions[weatherMain];
                 document.querySelector(".weatherName").innerHTML = weatherMain;
+
+                // call fiveDays Forecasting
+                
+                fiveDaysForecast.getForecast(data.coord.lat,data.coord.lon )
 
 
                 
