@@ -7,6 +7,9 @@ fetchWeather.weatherData()
 
 
 
+  
+
+
 
 // addEventListener("load",()=>{
 //     fetchTime.fetchWorldTime("lahore")

@@ -1,6 +1,7 @@
 const fivDaysDiv = document.querySelector(".forecast");
 const div = document.querySelectorAll(".div")
 import {FiveDaysWeather} from './weatherIcon.js'
+import {hourlyForecast} from './hourlyforecast.js'
 const apiKey = "544e0f69c9cccccab9abd812d7fa8bb8";
 
 // const lat =31.5497;
@@ -8,6 +9,7 @@ const apiKey = "544e0f69c9cccccab9abd812d7fa8bb8";
 const fiveDaysWeather = (weatherItem)=>{
 
       let weatherMain = weatherItem.weather[0].main;
+      
       let date_string = weatherItem.dt_txt;
       let dateObj = new Date(date_string);
       let formatted_date = dateObj.toLocaleString('en-US', {weekday:'short',day:'numeric',     month:'short'})
@@ -17,7 +19,7 @@ const fiveDaysWeather = (weatherItem)=>{
             
             <li class="flex justify-evenly items-center text-center lg:gap-[4vw] gap-[16vw] max-sm:gap-[10vw] ">
                 <img src="${FiveDaysWeather[weatherMain]}">
-                <span class="font-semibold text-[24px] max-sm:text-[22px]">${Math.floor(weatherItem.main.temp)}°C</span>
+                <span class="font-semibold text-[24px] max-sm:text-[22px]">${Math.floor(weatherItem.main.temp_max)}°C</span>
                 <span class="font-semibold text-[20px] max-sm:text-[18px]">${formatted_date}</span>
             </li>
             
@@ -32,12 +34,16 @@ const fiveDaysWeather = (weatherItem)=>{
    const response = await fetch(url);
    const data = await response.json();
     console.log(data)
+    hourlyForecast(data)
 
     const filter =  data.list.filter((forecast)=>{
       
       const forecastDate = new Date(forecast.dt_txt).getDate()
+    
+      
       if(!uniqueWeather.includes(forecastDate)){
         return  uniqueWeather.push(forecastDate)
+        
          
 
       }
@@ -46,6 +52,8 @@ const fiveDaysWeather = (weatherItem)=>{
         
 
     })
+    // console.log(filter)
+    
    const fivDaysDate = filter.slice(0,5)
    
    
