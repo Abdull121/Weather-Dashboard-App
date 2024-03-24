@@ -1,6 +1,6 @@
 const fivDaysDiv = document.querySelector(".forecast");
 const div = document.querySelectorAll(".div")
-import {FiveDaysWeather} from './weatherIcon.js'
+import {weatherConditions} from './weatherIcon.js'
 import {hourlyForecast} from './hourlyforecast.js'
 const apiKey = "544e0f69c9cccccab9abd812d7fa8bb8";
 
@@ -9,7 +9,7 @@ const apiKey = "544e0f69c9cccccab9abd812d7fa8bb8";
 const fiveDaysWeather = (weatherItem)=>{
 
       let weatherMain = weatherItem.weather[0].main;
-      
+
       let date_string = weatherItem.dt_txt;
       let dateObj = new Date(date_string);
       let formatted_date = dateObj.toLocaleString('en-US', {weekday:'short',day:'numeric',     month:'short'})
@@ -18,7 +18,7 @@ const fiveDaysWeather = (weatherItem)=>{
   return` 
             
             <li class="flex justify-evenly items-center text-center lg:gap-[4vw] gap-[16vw] max-sm:gap-[10vw] ">
-                <img src="${FiveDaysWeather[weatherMain]}">
+                <img src="${weatherConditions[weatherMain] }" class = "w-[60px]">
                 <span class="font-semibold text-[24px] max-sm:text-[22px]">${Math.floor(weatherItem.main.temp_max)}°C</span>
                 <span class="font-semibold text-[20px] max-sm:text-[18px]">${formatted_date}</span>
             </li>

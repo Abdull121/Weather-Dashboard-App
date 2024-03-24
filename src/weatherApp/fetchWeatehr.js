@@ -27,7 +27,7 @@ export const weatherData = ()=>{
             e.preventDefault();
             console.log("event default work")
            await getWeather(defaultSearch.value);
-            // console.log(data)
+            console.log(data)
             
             
             if(data.name=== searchVal(defaultSearch .value)){
@@ -38,13 +38,15 @@ export const weatherData = ()=>{
                 
                 document.querySelector('#feelslike').innerHTML = `${Math.floor(data.main.feels_like)}°C`
                 document.querySelector('.humidity').innerHTML = data.main.humidity
-                document.querySelector('.windSpeed').innerHTML = `${Math.floor(data.wind.speed)}km/h`
+                document.querySelector('.windSpeed').innerHTML = `${Math.floor(data.wind.speed*3.6)}km/h`
                 document.querySelector('.pressure').innerHTML = `${data.main.pressure}hpa`
                 document.querySelector('.visibility').innerHTML = `${data.visibility/1000} km`
 
 
-                sunrise(data.sys.sunrise)
-                sunset(data.sys.sunset)
+                // sunrise(data.sys.sunrise)
+                
+                document.querySelector(".sunset").innerHTML= sunset(data.sys.sunset, data.timezone )
+                document.querySelector(".sunrise").innerHTML= sunset(data.sys.sunrise, data.timezone )
 
 
                 // access and show weather icons from weatherIcon.js
@@ -78,28 +80,50 @@ export const weatherData = ()=>{
         }
 
 
+
+
+
+
+        function sunset(unixTimestamp, timezone) {
+            // Create a new Date object with the Unix timestamp in UTC
+            const dateUTC = new Date(unixTimestamp * 1000);
+            
+            // Get the UTC hours and minutes
+            const hoursUTC = dateUTC.getUTCHours();
+            const minutesUTC = dateUTC.getUTCMinutes();
+            
+            // Calculate the local time by adding the timezone offset
+            const localHours = hoursUTC + (timezone / 3600); // Convert seconds to hours
+            const localMinutes = minutesUTC;
+            
+            // Adjust for 24-hour time if necessary
+            const adjustedHours = localHours >= 24 ? localHours - 24 : localHours;
+            
+            // Determine AM/PM and format hours
+            const period = adjustedHours >= 12 ? "PM" : "AM";
+            const formattedHours = adjustedHours % 12 || 12; // Adjust for 12-hour format
+            
+            // Add leading zero if minutes less than 10
+            const formattedMinutes = localMinutes < 10 ? "0" + localMinutes : localMinutes;
+            
+            return`${formattedHours}:${formattedMinutes} ${period}`;
+        }
+        
+       
+        
           
-        function sunrise (unixTimestamp){
+       
+              
+
+           
+            
+            
+        
 
 
-            // E.g unixTimestamp = 1710594667; 
 
-            const myDate = new Date(unixTimestamp* 1000); 
-            const timeOnly  =  myDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-            document.querySelector(".sunrise").innerHTML=timeOnly
-            console.log(timeOnly); 
-        }
+        
 
-        function sunset (unixTimestamp){
-
-
-            // E.g unixTimestamp = 1710594667; 
-
-            const myDate = new Date(unixTimestamp* 1000); 
-            const timeOnly  =  myDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-            document.querySelector(".sunset").innerHTML=timeOnly
-            console.log(timeOnly); 
-        }
     
       
       
