@@ -49,7 +49,7 @@ export const hourlyForecast = (data)=>{
       
         timeForecast.insertAdjacentHTML("beforeend",displayForecast(element) )
   
-  console.log(element)
+  // console.log(element)
         
   
   

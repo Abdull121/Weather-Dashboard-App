@@ -27,7 +27,7 @@ export const weatherData = ()=>{
             e.preventDefault();
             console.log("event default work")
            await getWeather(defaultSearch.value);
-            console.log(data)
+            // console.log(data)
             
             
             if(data.name=== searchVal(defaultSearch .value)){
