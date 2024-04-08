@@ -1,8 +1,15 @@
 const currentTime = document.querySelector("#time");
 const currentDate = document.querySelector("#date");
-
+const animate = document.querySelectorAll('.animation')
+const loading = document.querySelector('.loading')
 
 export async function fetchWorldTime(city) {
+
+  loading.style.display="grid"
+  animate.forEach((e)=>{
+      e.classList.remove("fade-in")
+  }) 
+  
   const apiKey = "wfxal1kHAqFexiHJPpanHA==Uxq6e0nKmM0orJPM";
 
   try {
@@ -20,8 +27,18 @@ export async function fetchWorldTime(city) {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-
+    
     const result = await response.json();
+    setTimeout(() => {
+      loading.style.display="none"
+   
+    }, 300); 
+    setTimeout(() => {
+   animate.forEach((e)=>{
+       e.classList.add("fade-in")
+     })
+  }, 300); 
+    // console.log(result)
 
     formatDate(result.date);
 

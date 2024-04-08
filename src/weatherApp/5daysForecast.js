@@ -8,7 +8,7 @@ const apiKey = "544e0f69c9cccccab9abd812d7fa8bb8";
 // const lon = 74.3436;
 const fiveDaysWeather = (weatherItem)=>{
 
-    console.log(weatherItem)
+    
 
 
       let weatherMain = weatherItem[2][1]
@@ -30,64 +30,57 @@ const fiveDaysWeather = (weatherItem)=>{
   export const getForecast = async(lat,lon)=>{
     const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
 
-    var  uniqueWeather =[];
+    // var  uniqueWeather =[];
    const response = await fetch(url);
    const data = await response.json();
     console.log(data)
     hourlyForecast(data)
 
 
-    for (let i=0; i<5; i+=data.cnt) {
-      // calculate average temp
-      let AverageTemp = 0;
-      for (let j=i; j<i+data.cnt; j++ ){
-          AverageTemp += data.list[j]["main"]["temp"];
+    // for (let i=0; i<5; i+=data.cnt) {
+    //   // calculate average temp
+    //   let AverageTemp = 0;
+    //   for (let j=i; j<i+data.cnt; j++ ){
+    //       AverageTemp += data.list[j]["main"]["temp"];
           
-      }
-      AverageTemp = AverageTemp / data.cnt;
-      console.log(AverageTemp)
-    }
+    //   }
+    //   AverageTemp = AverageTemp / data.cnt;
+    //   // console.log(AverageTemp)
+    // }
 
-    const filter =  data.list.filter((forecast)=>{
+    // const filter =  data.list.filter((forecast)=>{
       
-      const forecastDate = new Date(forecast.dt_txt).getDate()
+    //   const forecastDate = new Date(forecast.dt_txt).getDate()
     
       
-      if(!uniqueWeather.includes(forecastDate)){
-        return  uniqueWeather.push(forecastDate)
+    //   if(!uniqueWeather.includes(forecastDate)){
+    //     return  uniqueWeather.push(forecastDate)
         
          
 
-      }
+    //   }
       
            
         
 
-    })
-    // console.log(filter)
+    // })
+    //  console.log(filter)
     
-   const fivDaysDate = filter.slice(0,5)
+  // const fivDaysDate = filter.slice(0,5)
    
    
    
 
    fivDaysDiv.innerHTML=`<h2 class=" font-bold mb-5 text-[32px]">5 Days Forecast:</h2>`
-   div.forEach((element)=>{
-      element.style.display="none"
+
+  //  div.forEach((element)=>{
+  //     element.style.display="none"
     
-   })
+  //  })
     
-    console.log(fivDaysDate)
+  //   console.log(fivDaysDate)
     
-    // fivDaysDate.forEach(element => {
-      
-    //   fivDaysDiv.insertAdjacentHTML("beforeend",fiveDaysWeather(element) )
-
-
-      
-
-
-    // });
+    
 
     function calculateMaxTemperatures(forecastData) {
       const temperatures = [];
@@ -152,7 +145,7 @@ const fiveDaysWeather = (weatherItem)=>{
   
   
   const maxTemperatures = calculateMaxTemperatures(data);
-  console.log(maxTemperatures);
+
   
   
   
