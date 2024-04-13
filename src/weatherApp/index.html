@@ -12,8 +12,10 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
         <link rel="stylesheet" href="app.css">
+       <!-- <link rel="stylesheet" href="../output.css"> -->
 
     <script src="https://cdn.tailwindcss.com"></script>
+
 
 
 
@@ -28,16 +30,15 @@
     <div class="grid gap-6 sm:m-12 m-2 sm:grid-cols-12 grid-cols-12  ">
 
         <!-- -toggle button -->
-        <div class=" sm:col-span-2 hidden md:block mt-5">
+        <div class=" sm:col-span-2 hidden md:block mt-5 ">
 
-            <label class="flex justify-start content-start  cursor-pointer">
-                <input type="checkbox" value="" class="sr-only peer">
-                <div
-                    class="relative w-[100px] h-[38.61px] outline-none rounded-full peer dark:bg-[#D9D9D9] peer-checked:after:translate-x-[180%] rtl:peer-checked:after:-translate-x-full  after:content-[''] after:absolute after:top-0.5 after:start-[4px]  after:bg-[#111111]  after:border after:rounded-full after:h-8 after:w-8 after:transition-all peer-checked:bg-[#D9D9D9]">
+            <label class="flex justify-start content-start  cursor-pointer ">
+                <input type="checkbox" value="" class="sr-only peer" checked>
+                <div class="toggle relative w-[100px] h-[38.61px] outline-none rounded-full peer dark:bg-[#D9D9D9] peer-checked:after:translate-x-[180%] rtl:peer-checked:after:-translate-x-full  after:content-[''] after:absolute after:top-0.5 after:start-[4px]  after:bg-[#111111]  after:border after:rounded-full after:h-8 after:w-8 after:transition-all peer-checked:bg-[#D9D9D9] ">
                 </div>
 
             </label>
-            <span class=" mt-2 flex justify-start  text-white font-extrabold">Dark Mode</span>
+            <span class=" darkmode mt-2 flex justify-start  font-extrabold">Dark Mode</span>
 
         </div>
 
@@ -59,7 +60,7 @@
                         </svg>
                     </div>
                     <input type="search" id="default-search"
-                        class=" w-[92%] lg:h-[62px] h-[50px] p-4 ps-[80px] text-lg text-gray-300 outline-none  border-none rounded-full bg-gray-50 dark:bg-[#444444] dark:border-gray-600 dark:placeholder-gray-400 dark:text-whit dark:focus:border-none"
+                        class="  w-[92%] lg:h-[62px] h-[50px] p-4 ps-[80px] text-lg text-gray-300 outline-none  border-none rounded-full bg-gray-50 dark: dark:border-gray-600 dark:placeholder-gray-400 dark:text-whit dark:focus:border-none"
                         placeholder="Search your city" required />
 
                 </div>
@@ -77,11 +78,11 @@
                 <span>
                     <img src="./assets/current location-icon.png" alt="">
                 </span>
-                <span class="text-white font-extrabold px-1 lg:text-lg hidden lg:block">
+                <span class="font-extrabold px-1 lg:text-lg hidden lg:block text-white">
                     Current location
                 </span>
             </div>
-
+            
         </div>
 
 
@@ -92,8 +93,9 @@
     -->
 
         
-        <div class="animation lg:col-span-5 col-span-12  ">
-            <div class="flex justify-center items-center text-center flex-col text-white bg-[#444444] sm:h-[330px] rounded-[30px] shadow-[10px_10px_12px_0px_rgba(0,0,0,0.75)]">
+        <div class="card animation lg:col-span-5 col-span-12     rounded-[30px] shadow-[10px_10px_12px_0px_rgba(0,0,0,0.75)]">
+            
+            <div class="flex justify-center items-center text-center flex-col sm:pt-8">
                 <span id="cityname" class="sm:text-[36px] text-[30px] font-extrabold mt-5">Lahore</span> <br>
                 <span id="time" class="md:text-[96px] text-[85px]  font-extrabold sm:m-0 -mt-5 ">03:17</span>
                 <span id="date" class="sm:-mt-7 -mt-7 mb-5">Saturday, 9 March</span>
@@ -107,13 +109,13 @@
                 -current weather section
                -->
                
-        <div class=" animation weather bg-[#444444] max-sm:min-h-min max-sm:pb-10 lg:col-span-7 col-span-12 shadow-[10px_10px_12px_0px_rgba(0,0,0,0.75)] rounded-[30px] max-sm:pt-12   lg:pr-0 pr-5 max-sm:pl-5  ">
+        <div class="card animation weather  max-sm:min-h-min max-sm:pb-10 lg:col-span-7 col-span-12 shadow-[10px_10px_12px_0px_rgba(0,0,0,0.75)] rounded-[30px] max-sm:pt-12   lg:pr-0 pr-5 max-sm:pl-5  ">
 
 
-            <div class="grid lg:grid-cols-3 sm:grid-cols-3 grid-cols-2 text-start">
+            <div class="grid lg:grid-cols-3 sm:grid-cols-3 grid-cols-2 text-start max-sm:text-white">
 
-                <div class="lg:pl-2 pl-5 lg:pt-0 sm:pt-5 pt-3  text-white sm:bg-[#444444]  sm:m-0 m-3 bg-[#1E1E1E] rounded-[30px] max-sm:min-w-min  ">
-                    <span class="lg:text-[5vw] sm:text-[8vw] text-[12vw]   font-extrabold " id="degree">24°C</span> <br>
+                <div class="lg:pl-2 pl-5 lg:pt-0 sm:pt-5 pt-3   sm:m-0 m-2 max-sm:bg-[#373636] rounded-[30px] max-sm:min-w-min max-sm:shadow-[3px_10px_12px_0px_rgba(0,0,0,0.75)]  ">
+                    <span class="lg:text-[5vw] sm:text-[8vw] text-[12vw] font-extrabold " id="degree">24°C</span> <br>
 
                     <div class="sm:-mt-4 -mt-2 ">
 
@@ -130,7 +132,7 @@
 
                     <div class="mt-6  pl-2">
 
-                        <img class="sm:block flex  justify-center sm:w-auto w-[30%]" src="./assets/sunrise-white 1.svg">
+                        <img class="sm:block flex  justify-center sm:w-auto w-[30%] img-color" src="./assets/sunrise-white 1.svg">
 
                         <div class="flex flex-col flex-wrap   sm:-mt-12  sm:ml-16   gap-2  ">
                             <span
@@ -144,7 +146,7 @@
 
                     <div class="pt-5 pl-2">
 
-                        <img class="sm:block flex  justify-end sm:w-auto w-[30%]" src="./assets/sunset-white 1.svg">
+                        <img class="sm:block flex  justify-end sm:w-auto w-[30%] img-color" src="./assets/sunset-white 1.svg">
 
                         <div class="flex flex-col flex-wrap   sm:-mt-12  sm:ml-16   gap-2 sm:mb-0 mb-5 ">
                             <span
@@ -160,10 +162,10 @@
 
 
                 <!-- #weather images-->
-                <div class=" flex flex-wrap flex-col justify-center items-center content-center text-center sm:-mt-0  top-0 sm:bg-[#444444] bg-[#1E1E1E] sm:m-0 m-3 rounded-[30px]  ">
+                <div class=" flex flex-wrap flex-col justify-center items-center content-center text-center sm:-mt-0  top-0 max-sm:bg-[#373636] sm:m-0 m-2 rounded-[30px] max-sm:shadow-[3px_10px_12px_0px_rgba(0,0,0,0.75)]  ">
 
                     <img src="./assets/clear 1.svg" class="weatherImg">
-                    <span class="weatherName font-semibold text-[32px] text-white ">Sunny</span>
+                    <span class="weatherName font-semibold text-[32px] ">Sunny</span>
 
                 </div>
 
@@ -172,14 +174,13 @@
 
 
 
-                <div
-                    class="mt-5 text-white max-sm:bg-[#1E1E1E] rounded-[30px]  sm:col-span-1 col-span-12 max-sm:py-8 max-sm:mt-12  max-sm:text-[12px] max-sm:min-w-min  max-sm:px-3 ">
+                <div class="mt-5 max-sm:bg-[#373636] rounded-[30px]  sm:col-span-1 col-span-12 max-sm:py-8 max-sm:mt-12  max-sm:text-[12px] max-sm:min-w-min  max-sm:shadow-[3px_10px_12px_0px_rgba(0,0,0,0.75)] ">
 
 
                     <div class="flex flex-nowrap  gap-12 max-sm:gap-28 justify-center  ">
 
-                        <img class="lg:w-[24%]  " src="./assets/humidity 1.svg" alt="humidity">
-                        <img class="lg:w-[24%]  " src="./assets/wind 1.svg" alt="wind">
+                        <img class="lg:w-[24%] img-color  " src="./assets/humidity 1.svg" alt="humidity">
+                        <img class="lg:w-[24%] img-color  " src="./assets/wind 1.svg" alt="wind">
 
                     </div>
 
@@ -205,16 +206,16 @@
 
                     <div class=" flex flex-nowrap gap-12 max-sm:gap-28  justify-center   mt-6">
 
-                        <img class="lg:w-[24%]  " src="./assets/pressure-white 1.svg" alt="pressure">
+                        <img class="lg:w-[24%] img-color  " src="./assets/pressure-white 1.svg" alt="pressure">
 
-                        <img class="lg:w-[24%] w-[60px] ml-2 brightness-[104%] hue-rotate-[295deg]  saturate-[0%] sepia-[100%] invert-[100%] contrast[102%] "
+                        <img class="lg:w-[24%] w-[60px] ml-2 img-color"
                             src="./assets/visibility.png " alt="visibility">
 
                     </div>
 
 
-                    <div class="flex flex-nowrap justify-center   gap-16 max-sm:gap-[9.3rem] mt-2">
-                        <span class=" pressure lg:text-[1vw] font-semibold max-sm:-ml-5 ">997hPa</span>
+                    <div class="flex flex-nowrap justify-center   gap-16 max-sm:gap-[9rem] mt-2">
+                        <span class=" pressure lg:text-[1vw] font-semibold max-sm:-ml-4 ">997hPa</span>
                         <span class="visibility lg:text-[1vw]  font-semibold  max-sm:mr-0 ">8 Km</span>
                     </div>
 
@@ -222,7 +223,7 @@
                     <div class="flex flex-nowrap  justify-center gap-12 max-sm:gap-32  mt-3">
 
                         <span class="lg:text-[1vw] font-medium pl-5 max-sm:-ml-3">Pressure</span>
-                        <span class="lg:text-[1vw] font-medium lg:mr-3 ">Visibility</span>
+                        <span class="lg:text-[1vw] font-medium lg:mr-3 max-sm:mr-3">Visibility</span>
 
                     </div>
 
@@ -243,7 +244,7 @@
 
         <!-- #5 Days forecast- card --->
 
-        <div class=" animation forecast bg-[#444444] rounded-[30px] lg:col-span-4 col-span-12 text-center text-white py-8 overflow-x-scroll no-scrollbar shadow-[10px_10px_12px_0px_rgba(0,0,0,0.75)] ">
+        <div class="card animation forecast  rounded-[30px] lg:col-span-4 col-span-12 text-center py-8 overflow-x-scroll no-scrollbar shadow-[10px_10px_12px_0px_rgba(0,0,0,0.75)] ">
 
 
 
@@ -291,7 +292,7 @@
 
         <!-- #Hourly Forecast-->
 
-        <div class="animation  bg-[#444444] rounded-[30px] min-h-min py-8 max-sm:pb-16   lg:col-span-8 col-span-12 text-center text-white relative  overflow-hidden  shadow-[10px_10px_12px_0px_rgba(0,0,0,0.75)] ">
+        <div class="card animation   rounded-[30px] min-h-min py-8 max-sm:pb-16   lg:col-span-8 col-span-12 text-center relative  overflow-hidden  shadow-[10px_10px_12px_0px_rgba(0,0,0,0.75)] ">
 
 
 
@@ -307,24 +308,24 @@
                 <div class="  flex justify-center text-center mb-12 gap-[48px] ml-10  min-w-min mr-6 ">
 
 
-                    <div class="w-[135px] h-[290px] bg-[#373636] rounded-[40px] -mt-5 pt-5">
+                    <div class="w-[135px] h-[290px] orange rounded-[40px] -mt-5 pt-5">
                         <span class="text-[24px] font-bold  px-8 ">12:00</span>
                     </div>
 
 
-                    <div class="w-[135px] h-[290px] bg-[#373636] rounded-[40px] -mt-5 pt-5">
+                    <div class="w-[135px] h-[290px] orange rounded-[40px] -mt-5 pt-5">
                         <span class="text-[24px] font-bold  px-8 ">15:00</span>
                     </div>
 
-                    <div class="w-[135px] h-[290px] bg-[#373636] rounded-[40px] -mt-5 pt-5">
+                    <div class="w-[135px] h-[290px] orange rounded-[40px] -mt-5 pt-5">
                         <span class="text-[24px] font-bold  px-8 ">18:00</span>
                     </div>
 
-                    <div class="w-[135px] h-[290px] bg-[#373636] rounded-[40px] -mt-5 pt-5">
+                    <div class="w-[135px] h-[290px] purple rounded-[40px] -mt-5 pt-5">
                         <span class="text-[24px] font-bold  px-8 ">21:00</span>
                     </div>
 
-                    <div class="w-[135px] h-[290px] bg-[#373636] rounded-[40px] -mt-5 pt-5">
+                    <div class="w-[135px] h-[290px] purple rounded-[40px] -mt-5 pt-5">
                         <span class="text-[24px] font-bold  px-8">00:00</span>
                     </div>
 

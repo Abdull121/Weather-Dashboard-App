@@ -1,3 +1,37 @@
+
+:root{
+  --white-alpha-8: hsla(0, 0%, 100%, 0.078);
+  --radius-pill: 500px;
+  --primary-color:#444444;
+  --secondary-color:#b1b1b1;
+  --color:#b1b1b1;
+  --card-color:#444444;
+  --text-color:#ffffff;
+  --img-bg:invert(10%) sepia(100%) saturate(10%) hue-rotate(299deg) brightness(100%) contrast(102%);
+  --hourly-orange-first-color: #373636;
+  --hourly-orange-second-color: #373636;
+
+
+  --hourly-purple-first-color:#373636;
+  --hourly-purple-second-color:#373636;
+  
+}
+.hourly-orange{
+
+  --hourly-orange-first-color: rgb(255,255,255);
+  --hourly-orange-second-color: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(229,211,183,1) 0%, rgba(244,155,55,1) 100%);
+
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--white-alpha-8);
+  border-radius: var(--radius-pill);
+}
+
+
 .hourly{
     display: flex;
    
@@ -63,5 +97,83 @@ overflow-x: auto;
   }
 }
 
+.bg{
+  background: rgb(255,255,255);
+background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(161,167,170,1) 35%, rgba(86,93,97,1) 100%);
+color:black
+}
 
 
+
+.border{
+  border:solid 2px black;
+
+}
+
+
+.orange{
+
+  background: var(--hourly-orange-first-color);
+  background: var(--hourly-orange-second-color);
+
+ 
+}
+
+.hourly-purple{
+  --hourly-purple-first-color: rgb(255,255,255);
+  --hourly-purple-second-color: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(155,161,186,1) 0%, rgba(86,83,121,1) 100%);
+}
+.purple{
+  background: var(--hourly-purple-first-color);
+  background: var(--hourly-purple-second-color);
+}
+
+.icon-color{
+  --img-bg:invert(100%) sepia(86%) saturate(7443%) hue-rotate(152deg) brightness(80%) contrast(80%);
+}
+
+.img-color{
+  filter: var(--img-bg)
+
+}
+
+#default-search{
+
+  background-color : var(--primary-color);
+  border:solid 2px var(--border-color);
+  color: var(--color);
+
+  
+
+}
+
+#default-search::placeholder{
+  color: var(--secondary-color)
+}
+.search-field{
+  --primary-color:#ffffff;
+  --secondary-color:#292929;
+  --border-color:#000000;
+  --color:#000000;
+  
+
+
+}
+.cardColor{
+  --card-color:#d9d9d9;
+  --text-color:#292929;
+  
+}
+.card{
+  background-color: var(--card-color);
+  color: var(--text-color)
+
+}
+
+@media(max-width:640px){
+
+  .icon-color{
+    --img-bg:invert(10%) sepia(100%) saturate(10%) hue-rotate(299deg) brightness(100%) contrast(102%);
+  }
+
+}

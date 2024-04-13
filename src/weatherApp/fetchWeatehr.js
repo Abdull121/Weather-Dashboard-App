@@ -44,6 +44,8 @@ export const weatherData = ()=>{
                 searchBox.addEventListener("submit",async (e)=>{
                      
                     e.preventDefault();
+                    defaultSearch.blur()
+                   
                     console.log("event default work")
                    await getWeather(defaultSearch.value);
                     // console.log(data)
@@ -76,6 +78,9 @@ export const weatherData = ()=>{
                         // call fiveDays Forecasting
                         
                         fiveDaysForecast.getForecast(data.coord.lat,data.coord.lon )
+                        setTimeout(() => {
+                            searchBox.blur(); // Remove focus from the search box after a short delay
+                        }, 500);
         
         
                         

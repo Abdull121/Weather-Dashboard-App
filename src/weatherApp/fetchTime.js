@@ -8,6 +8,7 @@ export async function fetchWorldTime(city) {
   loading.style.display="grid"
   animate.forEach((e)=>{
       e.classList.remove("fade-in")
+      e.style.display="none"
   }) 
   
   const apiKey = "wfxal1kHAqFexiHJPpanHA==Uxq6e0nKmM0orJPM";
@@ -35,14 +36,20 @@ export async function fetchWorldTime(city) {
     }, 300); 
     setTimeout(() => {
    animate.forEach((e)=>{
+    e.style.display="block"
        e.classList.add("fade-in")
      })
   }, 300); 
     // console.log(result)
 
     formatDate(result.date);
+    
+   formatTime(result.datetime);
+    
+    
+    
 
-    formatTime(result.datetime);
+
   } catch (error) {
     console.error("Error:", error.message);
   }
@@ -87,4 +94,5 @@ function formatDate(inputDate) {
   const hours = date.getHours().toString().padStart(2, "0");
   const minutes = date.getMinutes().toString().padStart(2, "0");
   currentTime.innerHTML = `${hours}:${minutes}`;
+  
 }
