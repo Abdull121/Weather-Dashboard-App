@@ -6,7 +6,7 @@ const loading = document.querySelector('.loading')
 export async function fetchWorldTime(city) {
 
   loading.style.display="grid"
-  animate.forEach((e)=>{
+  animate.forEach((e)=>{  
       e.classList.remove("fade-in")
       e.style.display="none"
   }) 

@@ -9,104 +9,66 @@ const  cityName = document.querySelector("#cityname")
 const  searchBox =  document.querySelector(".input")
 const weatherImg =  document.querySelector(".weatherImg")
 
-//global variable for access the fetch data
-let data;
+
+
+
 
 
 
 const apiKey = "544e0f69c9cccccab9abd812d7fa8bb8";
 
 
-export const weatherData = ()=>{
-    
-  const getWeather = async (city) => {
-            
-            
-           
-
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-        const response = await fetch(url);
-         data = await response.json();
-        
-         
-         
-         
-         
-
-
-      }
-      
-     
-     
-     
-                    
-
-                searchBox.addEventListener("submit",async (e)=>{
-                     
-                    e.preventDefault();
-                    defaultSearch.blur()
-                   
-                    console.log("event default work")
-                   await getWeather(defaultSearch.value);
-                    // console.log(data)
-                    
-                    
-                    if(data.name=== searchVal(defaultSearch .value)){
-                        cityName.innerHTML=data.name
-                        fetchTime.fetchWorldTime(defaultSearch .value)
-                        defaultSearch.value="";
-                        document.querySelector('#degree').innerHTML = `${Math.floor(data.main.temp)}°C`
-                        
-                        document.querySelector('#feelslike').innerHTML = `${Math.floor(data.main.feels_like)}°C`
-                        document.querySelector('.humidity').innerHTML = data.main.humidity
-                        document.querySelector('.windSpeed').innerHTML = `${Math.floor(data.wind.speed*3.6)}km/h`
-                        document.querySelector('.pressure').innerHTML = `${data.main.pressure}hpa`
-                        document.querySelector('.visibility').innerHTML = `${data.visibility/1000} km`
-        
-        
-                        // sunrise(data.sys.sunrise)
-                        
-                        document.querySelector(".sunset").innerHTML= sunset(data.sys.sunset, data.timezone )
-                        document.querySelector(".sunrise").innerHTML= sunset(data.sys.sunrise, data.timezone )
-        
-        
-                        // access and show weather icons from weatherIcon.js
-                        const weatherMain = data.weather[0].main;
-                        weatherImg.src = weatherConditions[weatherMain];
-                        document.querySelector(".weatherName").innerHTML = weatherMain;
-        
-                        // call fiveDays Forecasting
-                        
-                        fiveDaysForecast.getForecast(data.coord.lat,data.coord.lon )
-                        setTimeout(() => {
-                            searchBox.blur(); // Remove focus from the search box after a short delay
-                        }, 500);
-        
-        
-                        
-                        
-                        
-        
-                    }
-                    
-                    else{
-                        window.alert("please enter a valid city name")
-                    }
-        
-        
-                  });
-            
-          
-      
-      
-      
-       //function that convert first letter to  Capital for search input value
-         let searchVal =  function capitalizeFirstLetter(string) {
-            return string[0].toUpperCase() + string.slice(1);
-        }
+export const weatherData = () => {
+    const getWeather = async (city) => {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+      const response = await fetch(url);
+      const data = await response.json();
   
-        
-}
+      // Update the UI with the weather data
+      cityName.innerHTML = data.name;
+      
+      document.querySelector('#degree').innerHTML = `${Math.floor(data.main.temp)}°C`;
+      document.querySelector('#feelslike').innerHTML = `${Math.floor(data.main.feels_like)}°C`;
+      document.querySelector('.humidity').innerHTML = data.main.humidity;
+      document.querySelector('.windSpeed').innerHTML = `${Math.floor(data.wind.speed * 3.6)}km/h`;
+      document.querySelector('.pressure').innerHTML = `${data.main.pressure}hpa`;
+      document.querySelector('.visibility').innerHTML = `${data.visibility / 1000} km`;
+      document.querySelector(".sunset").innerHTML = sunset(data.sys.sunset, data.timezone);
+      document.querySelector(".sunrise").innerHTML = sunset(data.sys.sunrise, data.timezone);
+  
+      const weatherMain = data.weather[0].main;
+      weatherImg.src = weatherConditions[weatherMain];
+      document.querySelector(".weatherName").innerHTML = weatherMain;
+  
+      // Call fiveDays Forecasting
+      fiveDaysForecast.getForecast(data.coord.lat, data.coord.lon);
+    };
+  
+    //Set default value and update UI on window load
+    window.onload = async function() {
+        document.body.style.display="block"
+        fetchTime.fetchWorldTime("lahore");
+       await getWeather("lahore");
+      
+      
+    };
+  
+    searchBox.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      defaultSearch.blur();
+      console.log("event default work");
+      fetchTime.fetchWorldTime(defaultSearch.value);
+      
+      await getWeather(defaultSearch.value);
+      defaultSearch.value = "";
+      
+    });
+  
+    let searchVal = function capitalizeFirstLetter(string) {
+      return string[0].toUpperCase() + string.slice(1);
+    };
+  };
+  
 
 // function convert unix time to actual time
 export function sunset(unixTimestamp, timezone) {

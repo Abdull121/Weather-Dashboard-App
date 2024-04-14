@@ -1,8 +1,11 @@
-import * as fetchTime from './fetchTime.js'
 import * as fetchWeather from './fetchWeatehr.js'
 import * as currentLocation from './currentlocation.js'
 const darkMode= document.querySelector('.darkmode')
 const toggleBtn = document.querySelector('.toggle')
+
+
+
+
 darkMode.style.color="white"
 
 
@@ -44,26 +47,9 @@ let flag =false;
 
     })
 
-
-
-    
   
 
 
-
-// addEventListener("load",()=>{
-//     fetchTime.fetchWorldTime("lahore")
-   
-
-// })
-
-
-
-
-
-//1710551486
-
-//1710594667
 
 
 
