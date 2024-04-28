@@ -56,7 +56,7 @@ export const weatherData = () => {
     searchBox.addEventListener("submit", async (e) => {
       e.preventDefault();
       defaultSearch.blur();
-      console.log("event default work");
+    //   console.log("event default work");
       fetchTime.fetchWorldTime(defaultSearch.value);
       
       await getWeather(defaultSearch.value);

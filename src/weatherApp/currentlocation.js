@@ -45,7 +45,10 @@ const display = (data)=>{
   }
  
 const getUserLocation= async (lat,long)=>{
-
+ 
+    
+    // latitude: 31.4640021
+    // longitude: 74.4434867
 
     const apiUrl = `${url}lat=${lat}&lon=${long}&limit=5&appid=${apiKey}`
     
@@ -71,8 +74,8 @@ const getUserLocation= async (lat,long)=>{
         
 
         
+            
         
-       
       
 
        
@@ -102,7 +105,7 @@ export const currentLocation=()=>{
     
                     (error)=>{
                         console.log(error)
-                    })
+                    },{ enableHighAccuracy: true })
         }
     })
 }
