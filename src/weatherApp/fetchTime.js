@@ -1,98 +1,88 @@
 const currentTime = document.querySelector("#time");
 const currentDate = document.querySelector("#date");
-const animate = document.querySelectorAll('.animation')
-const loading = document.querySelector('.loading')
 
-export async function fetchWorldTime(city) {
-
-  loading.style.display="grid"
-  animate.forEach((e)=>{  
-      e.classList.remove("fade-in")
-      e.style.display="none"
-  }) 
-  
-  const apiKey = "wfxal1kHAqFexiHJPpanHA==Uxq6e0nKmM0orJPM";
-
+export async function fetchWorldTime(timeZoneName, UnixtimeZone) {
   try {
     const response = await fetch(
-      `https://api.api-ninjas.com/v1/worldtime?city=${city}`,
-      {
-        method: "GET",
-        headers: {
-          "X-Api-Key": apiKey,
-          "Content-Type": "application/json",
-        },
-      }
+      `https://worldtimeapi.org/api/timezone/${timeZoneName}`
     );
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      throw new Error("Network response was not ok");
     }
-    
+
     const result = await response.json();
-    setTimeout(() => {
-      loading.style.display="none"
-   
-    }, 300); 
-    setTimeout(() => {
-   animate.forEach((e)=>{
-    e.style.display="block"
-       e.classList.add("fade-in")
-     })
-  }, 300); 
-    // console.log(result)
+    //  console.log(result.datetime);
 
-    formatDate(result.date);
-    
-   formatTime(result.datetime);
-    
-    
-    
+    // console.log(realTime(result.unixtime,UnixtimeZone))
 
+    const localTime = realTime(result.unixtime, UnixtimeZone);
+    //  console.log(formatDate(result.datetime))
 
+    //convert unix time to real time
+
+    function realTime(unixTimestamp, unixtimeZone) {
+      // Create a new Date object with the Unix timestamp in UTC
+      const dateUTC = new Date(unixTimestamp * 1000);
+
+      // Get the UTC hours and minutes
+      const hoursUTC = dateUTC.getUTCHours();
+      const minutesUTC = dateUTC.getUTCMinutes();
+
+      // Calculate the local time by adding the timezone offset
+      const localHours = hoursUTC + unixtimeZone / 3600; // Convert seconds to hours
+      const localMinutes = minutesUTC;
+
+      // Adjust for 24-hour time if necessary
+      const adjustedHours = localHours >= 24 ? localHours - 24 : localHours;
+
+      // Determine AM/PM and format hours
+      const period = adjustedHours >= 12 ? "PM" : "AM";
+      const formattedHours = adjustedHours % 12 || 12; // Adjust for 12-hour format
+
+      // Add leading zero if minutes less than 10
+      const formattedMinutes =
+        localMinutes < 10 ? "0" + localMinutes : localMinutes;
+
+      return `${formattedHours}:${formattedMinutes} ${period}`;
+    }
   } catch (error) {
     console.error("Error:", error.message);
   }
 }
 
-// change the date format
-function formatDate(inputDate) {
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+// fetchWorldTime();
 
-  const date = new Date(inputDate);
-  const weekday = days[date.getDay()];
-  const day = date.getDate();
-  const month = months[date.getMonth()];
+//convert time to 24 hours format
+function convertTime12to24(time12h) {
+  // Split the time string into hours, minutes, and AM/PM
+  const [time, modifier] = time12h.split(" ");
 
-  currentDate.innerHTML = `${weekday}, ${day} ${month}`;
+  // Split hours and minutes
+  const [hours, minutes] = time.split(":");
+
+  // Convert hours to 24-hour format
+  let hours24 = parseInt(hours, 10);
+  if (hours === "12") {
+    hours24 = modifier === "AM" ? 0 : 12;
+  } else {
+    hours24 += modifier === "PM" ? 12 : 0;
+  }
+
+  // Format the time in 24-hour format
+  const formattedTime = `${hours24.toString().padStart(2, "0")}:${minutes}`;
+  return (currentTime.innerHTML = formattedTime);
 }
 
- function formatTime(dateTimeString) {
-  const date = new Date(dateTimeString);
-  const hours = date.getHours().toString().padStart(2, "0");
-  const minutes = date.getMinutes().toString().padStart(2, "0");
-  currentTime.innerHTML = `${hours}:${minutes}`;
-  
+function formatDate(datetimeString) {
+  const date = new Date(datetimeString);
+
+  const options = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  };
+
+  const formattedDate = date.toLocaleDateString("en-US", options);
+  return (currentDate.innerHTML = formattedDate);
 }

@@ -8,24 +8,12 @@ export const weatherConditions = {
     Snow: "./assets/weather-icons/snow.png",
     Thunderstorm: "./assets/weather-icons/thunderstorm.png",
     Haze: "./assets/weather-icons/haze.png",
+    Dust: "./assets/weather-icons/haze.png",
     Smoke: "./assets/weather-icons/haze.png",
 
   };
 
 
-  // export const fiveDaysWeatherIcon = {
-  //   with:"60px",
-  //   Clouds: "./assets/clouds 1.svg",
-  //   Clear: "./assets/clear 2.svg",
-  //   Rain: "./assets/rain 1.svg",
-  //   Drizzle: "./assets/drizzle 1.svg",
-  //   Mist: "./assets/mist 1.svg",
-  //   Snow: "./assets/weather-icons/snow.png",
-  //   Thunderstorm: "./assets/weather-icons/thunderstorm.png",
-  //   Haze: "./assets/weather-icons/haze.png",
-  //   Smoke: "./assets/weather-icons/haze.png",
-
-  // };
 
   export const windDirection = ["./assets/navigation 1.svg"]
 
