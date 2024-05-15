@@ -1,7 +1,12 @@
 const currentTime = document.querySelector("#time");
 const currentDate = document.querySelector("#date");
 
+
+
 export async function fetchWorldTime(timeZoneName, UnixtimeZone) {
+
+
+
   try {
     const response = await fetch(
       `https://worldtimeapi.org/api/timezone/${timeZoneName}`
@@ -14,10 +19,12 @@ export async function fetchWorldTime(timeZoneName, UnixtimeZone) {
     const result = await response.json();
     //  console.log(result.datetime);
 
-    // console.log(realTime(result.unixtime,UnixtimeZone))
+    realTime(result.unixtime, UnixtimeZone);
 
     const localTime = realTime(result.unixtime, UnixtimeZone);
-    //  console.log(formatDate(result.datetime))
+    formatDate(result.datetime);
+
+    convertTime12to24(localTime);
 
     //convert unix time to real time
 
@@ -50,8 +57,6 @@ export async function fetchWorldTime(timeZoneName, UnixtimeZone) {
     console.error("Error:", error.message);
   }
 }
-
-// fetchWorldTime();
 
 //convert time to 24 hours format
 function convertTime12to24(time12h) {
