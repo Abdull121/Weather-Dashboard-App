@@ -115,14 +115,14 @@ export const weatherData = () => {
       //delay the loader
       setTimeout(() => {
         loading.style.display = "none";
-      }, 300);
+      }, 999);
 
       setTimeout(() => {
         animate.forEach((e) => {
           e.style.display = "block";
           e.classList.add("fade-in");
         });
-      }, 300);
+      }, 999);
     } catch (error) {
       console.log(error);
 
