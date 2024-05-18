@@ -1,17 +1,12 @@
 const currentTime = document.querySelector("#time");
 const currentDate = document.querySelector("#date");
 
-
-
 export async function fetchWorldTime(timeZoneName, UnixtimeZone) {
 
 
 
   try {
 
-    setInterval(() => {
-      
-    }, 1000);
 
     
     const response = await fetch(
