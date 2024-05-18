@@ -121,7 +121,3 @@ For any queries or issues, please open an issue on the repository or contact me 
 
 ![image](https://github.com/Abdull121/Weather-Dashboard-App/assets/93944428/5be0104b-be3c-43c8-8608-12d09d13f8ca)
 
-
-
-
-
