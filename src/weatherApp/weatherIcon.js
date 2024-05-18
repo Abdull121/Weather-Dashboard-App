@@ -15,7 +15,7 @@ export const weatherConditions = {
 
 
 
-  export const windDirection = ["./assets/navigation 1.svg"]
+  export const windDirection = ["./assets/main-icons/navigation 1.svg"]
 
 
   
