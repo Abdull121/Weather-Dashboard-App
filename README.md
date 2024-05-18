@@ -37,7 +37,7 @@ Access the hourly forecast for the current day, including real-time updates, tem
  
 ##  Design
 The design for the Weather Dashboard App was sourced from an open-source Figma template. It has been carefully implemented to ensure a pixel-perfect representation.
-[Figma]([https://example.com](https://www.figma.com/design/7aWA4f1MiooSemq7KvTHbK/Weather-Dashboard-(Community)?node-id=1-3)
+[Figma]([weather-Dashboard App](https://www.figma.com/design/7aWA4f1MiooSemq7KvTHbK/Weather-Dashboard-(Community)?node-id=1-3)
 
 ## Installation
 
