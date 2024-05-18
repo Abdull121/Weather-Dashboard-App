@@ -1,6 +1,6 @@
 import * as fetchWeatherApi from "./api.js";
 import * as fetchTime from "./fetchTime.js";
-import * as fetchWeather from "./fetchWeatehr.js";
+import * as fetchWeather from "./fetchWeather.js";
 import { weatherConditions } from "./weatherIcon.js";
 import * as fiveDaysForecast from "./5daysForecast.js";
 
@@ -12,7 +12,13 @@ const apiKey = "544e0f69c9cccccab9abd812d7fa8bb8";
 const url = "https://api.openweathermap.org/geo/1.0/reverse?";
 
 const display = (data) => {
-  //  console.log(data.timezone)
+    //  console.log(data.name)
+    
+    
+    
+    const timeZoneName = getTimezoneName(data.timezone);
+
+    fetchTime.fetchWorldTime(timeZoneName, data.timezone);
   const weatherMain = data.weather[0].main;
 
   document.querySelector("#degree").innerHTML = `${Math.floor(
@@ -64,29 +70,35 @@ const getUserLocation = async (lat, long) => {
   try {
     const response = await fetch(apiUrl);
     const locationData = await response.json();
-    // console.log(locationData)
-    const result = await fetchWeatherApi.getWeather(locationData[0].name);
-    //
+    console.log(locationData)
+    document.querySelector("#cityname").innerHTML = locationData[0].name;
+
+    
+    const result =  await fetchWeatherApi.getWeather(locationData[0].name);
+    
+    
+
+
+
+    
     // console.log(result.timezone);
-    display(result);
+     display(result);
+    
 
-    document.querySelector("#cityname").innerHTML = result.name;
+    
 
-    const timeZoneName = getTimezoneName(result.timezone);
-
-    fetchTime.fetchWorldTime(timeZoneName, result.timezone);
 
     //delay the loader
     setTimeout(() => {
       loading.style.display = "none";
-    }, 300);
+    }, 1500);
 
     setTimeout(() => {
       animate.forEach((e) => {
         e.style.display = "block";
         e.classList.add("fade-in");
       });
-    }, 300);
+    }, 1500);
   } catch (error) {
     loading.style.display = "none";
     animate.forEach((e) => {
@@ -103,6 +115,7 @@ export const currentLocation = () => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           // console.log(position)
+         
           const { latitude, longitude } = position.coords;
 
           getUserLocation(latitude, longitude);
@@ -110,6 +123,7 @@ export const currentLocation = () => {
 
         (error) => {
           console.log(error);
+          alert("Geolocation is not supported by this browser");
         },
         { enableHighAccuracy: true }
       );

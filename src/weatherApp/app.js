@@ -1,4 +1,4 @@
-import * as fetchWeather from "./fetchWeatehr.js";
+import * as fetchWeather from "./fetchWeather.js";
 import * as currentLocation from "./currentlocation.js";
 const darkMode = document.querySelector(".darkmode");
 const toggleBtn = document.querySelector(".toggle");

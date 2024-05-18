@@ -2,6 +2,7 @@ import * as fetchTime from "./fetchTime.js";
 import * as fiveDaysForecast from "./5daysForecast.js";
 import { weatherConditions } from "./weatherIcon.js";
 
+
 const defaultSearch = document.querySelector("#default-search");
 const cityName = document.querySelector("#cityname");
 const searchBox = document.querySelector(".input");
@@ -30,10 +31,15 @@ export const weatherData = () => {
         throw new Error("Network response was not ok or invalid url");
       }
 
+
       data = await response.json();
-      // console.log(data)
+
+      
+      
+      
 
       // Update the UI with the weather data
+      //  console.log(data)
       cityName.innerHTML = data.name;
 
       document.querySelector("#degree").innerHTML = `${Math.floor(
@@ -115,14 +121,14 @@ export const weatherData = () => {
       //delay the loader
       setTimeout(() => {
         loading.style.display = "none";
-      }, 999);
+      }, 1500);
 
       setTimeout(() => {
         animate.forEach((e) => {
           e.style.display = "block";
           e.classList.add("fade-in");
         });
-      }, 999);
+      }, 1500);
     } catch (error) {
       console.log(error);
 
