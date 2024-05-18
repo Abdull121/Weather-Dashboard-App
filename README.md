@@ -114,7 +114,7 @@ This project is licensed under the MIT License. You are free to use, modify, and
 
 ## Contact
 
-For any queries or issues, please open an issue on the repository or contact me directly at Muhammad Abdullah](mailto:abdullahimran8875@gmail.com).
+For any queries or issues, please open an issue on the repository or contact me directly at [Muhmmmad Abdullah](mailto:abdullahiman8875@gmail.com).
 
 ---
 
