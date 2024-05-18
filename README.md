@@ -110,7 +110,7 @@ Contributions to this project are welcome. If you wish to contribute, please fol
 
 ## License
 
-This project is licensed under the MIT License. You are free to use, modify, and distribute this software as long as proper credit is given. However, please do not use this code for commercial purposes.
+This project is licensed under the MIT License. You are free to use, modify, and distribute this software as long as proper credit is given. However**, please do not use this code for commercial purposes.**
 
 ## Contact
 
