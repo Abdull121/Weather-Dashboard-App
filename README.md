@@ -34,12 +34,14 @@ Access the hourly forecast for the current day, including real-time updates, tem
 - **WorldTimeAPI**: For getting the real-time date and time.
 - **Geolocation API**: For determining the user's current location.
 
- [OpenWeatherMap API documentation](https://openweathermap.org/api) for more information.
- [World Time API documentation](https://worldtimeapi.org/api) for details.
+* [OpenWeatherMap API documentation](https://openweathermap.org/api) for more information.
+* [World Time API documentation](https://worldtimeapi.org/api) for details.
 
 ## Design
 The design for the Weather Dashboard App was sourced from an open-source Figma template. It has been carefully implemented to ensure a pixel-perfect representation.
-**Open Source Figma Design**: The app's user interface is based on an open-source Figma design. You can find the design [here]([https://www.figma.com/community/file/1234567890](https://www.figma.com/design/7aWA4f1MiooSemq7KvTHbK/Weather-Dashboard-(Community)?node-id=1-3)).
+**Open Source Figma Design**: The app's user interface is based on an open-source Figma design.
+[Figma Design]([weather Dashboad App](https://www.figma.com/design/7aWA4f1MiooSemq7KvTHbK/Weather-Dashboard-(Community)?node-id=1-3) for details.
+
 
 ## Installation
 
