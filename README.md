@@ -3,23 +3,23 @@
 This is a pixel-perfect Weather Dashboard App built using modern front-end technologies. The app provides a comprehensive view of current weather conditions, forecasts, and other weather-related details for any location. This app is meticulously designed to be pixel-perfect and leverages modern front-end technologies, ensuring a seamless and visually appealing user experience.
 
 ## Features
-**Real-time Weather Updates:**
+- **Real-time Weather Updates:**
 Get up-to-date weather information for any location, including the current date and time.
-**Current Weather Details:** 
+- **Current Weather Details:** 
 Displays the current temperature, sunrise and sunset times, humidity, wind speed, atmospheric pressure, and visibility.
-**Sunrise and Sunset Details**: Provides information on the sunrise and sunset times.
-**5-Day Forecast:**
+- **Sunrise and Sunset Details**: Provides information on the sunrise and sunset times.
+- **5-Day Forecast:**
 View the forecasted weather conditions for the next five days, including the date.
-**Hourly Forecast:**
+- **Hourly Forecast:**
 Access the hourly forecast for the current day, including real-time updates, temperature, wind direction, and wind speed.
- **Current Location Feature**:
+-  **Current Location Feature**:
  Fetches and displays weather data based on the user's current location.
- **Dark Mode and Light Mode**:
+ - **Dark Mode and Light Mode**:
  Supports dark and light mode themes for better user experience and accessibility.
 
 ## Technologies Used
 
-- **HTML5**: Markup language for structuring the web pages.
+- **HTML5**: Hypertext Markup language for structuring the web pages.
 - **CSS3**: Styling language for enhancing the app's visual appearance.
 - **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
 - **Tailwind CSS Components**: Pre-built UI components for faster development.
