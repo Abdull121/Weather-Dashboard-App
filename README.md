@@ -33,7 +33,8 @@ Access the hourly forecast for the current day, including real-time updates, tem
 * WorldTimeAPI: For getting the real-time date and time.
 * Geolocation API: For determining the user's current location.
   ### URL
- https://openweathermap.org/api
+  [API]([openWeatherApi]( https://openweathermap.org/api)
+
  
 ##  Design
 The design for the Weather Dashboard App was sourced from an open-source Figma template. It has been carefully implemented to ensure a pixel-perfect representation.
