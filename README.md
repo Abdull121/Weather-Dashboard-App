@@ -1,6 +1,6 @@
 # Weather Dashboard App
 
-This is a pixel-perfect Weather Dashboard App built using modern front-end technologies. The app provides a comprehensive view of current weather conditions, forecasts, and other weather-related details for any location. This app is meticulously designed to be pixel-perfect and leverages modern front-end technologies, ensuring a seamless and visually appealing user experience.
+This is a pixel-perfect Weather Dashboard App built using modern front-end technologies. The app provides a comprehensive view of current weather conditions, forecasts, and other weather-related details for any location. This app is meticulously designed to be pixel-perfect and responsive mobile-friendly leveraging modern front-end technologies, ensuring a seamless and visually appealing user experience.
 
 ## Features
 1. **Real-time Weather Updates:**
@@ -116,6 +116,12 @@ This project is licensed under the MIT License. You are free to use, modify, and
 
 For any queries or issues, please open an issue on the repository or contact me directly at [Muhmmmad Abdullah](mailto:abdullahiman8875@gmail.com).
 
----
+## ScreenShots
+![image](https://github.com/Abdull121/Weather-Dashboard-App/assets/93944428/598dbafe-07f7-438d-829b-bb5af0678800)
+
+![image](https://github.com/Abdull121/Weather-Dashboard-App/assets/93944428/5be0104b-be3c-43c8-8608-12d09d13f8ca)
+
+
+
 
 
